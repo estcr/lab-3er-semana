@@ -1,9 +1,9 @@
 # Análisis de Precios de Zapatillas de Crossfit
 
 ## Descripción del Proyecto
-Este proyecto tiene como objetivo analizar los precios de las zapatillas de Crossfit en oferta y precio normal a través de un proceso de web scraping, utilizando datos obtenidos de sitios web de marcas específicas. A partir de esta información, se generan visualizaciones de las variaciones de precios, se analizan patrones estacionales y se proponen recomendaciones para los consumidores y empresas del sector.
+Este proyecto tiene como objetivo analizar los precios de las zapatillas de Crossfit en oferta y precio normal a través de un proceso de web scraping, utilizando datos obtenidos de un sitio web que posee casi todas las marcas(en un futuro la idea es ampliar esta obtención de datos). A partir de esta información, se generan graáficos de las variaciones de precios, se analizan patrones estacionales y se proponen recomendaciones para los consumidores y empresas del sector.
 
-El proceso de análisis y limpieza de datos se ha realizado con el fin de proporcionar a la empresa de retail información sobre las mejores épocas para realizar campañas de marketing y optimizar sus precios.
+El proceso de análisis y limpieza de datos se ha realizado con el fin de proporcionar a la empresa una información sobre las mejores épocas para realizar campañas de marketing y optimizar sus precios. A su vez, se busca llevar este análisis un paso más allá, no solo como una herramienta para empresas, sino también para **avisar a los consumidores sobre las subidas y bajadas de precios**. Esto permitirá que los usuarios reciban notificaciones sobre las mejores ofertas disponibles y puedan aprovechar las fluctuaciones de precios en tiempo real en un futuro.
 
 ## Objetivo del Proyecto
 El análisis de precios se realizó con el objetivo de:
@@ -22,15 +22,15 @@ Para el desarrollo de este proyecto, se utilizaron las siguientes herramientas y
 - **Pandas**: Para la manipulación y limpieza de los datos.
 - **NumPy**: Para la creación de datos ficticios y cálculos numéricos.
 - **Fuzzywuzzy**: Para la estandarización y coincidencia de texto, especialmente útil en la limpieza de nombres y colores.
-- **Matplotlib & Seaborn**: Para la visualización de los datos y la creación de gráficos.
+- **Plotly Express**: Para la visualización de los datos y la creación de gráficos interactivos.
 - **Datetime**: Para la gestión de fechas y tiempos, y la creación de fechas ficticias.
 - **Visual Studio Code**: Editor de código utilizado en el desarrollo del proyecto.
 - **GitHub**: Plataforma utilizada para almacenar el código y colaborar en el desarrollo.
 
 ## Proceso de Limpieza de Datos
-Durante el análisis, se enfrentaron varios desafíos relacionados con la obtención y limpieza de datos. A continuación se describen los principales pasos realizados:
+Durante el análisis, se enfrentaron varios inconvenientes relacionados con la obtención y limpieza de datos. Los pasos realizados fueron:
 
-1. **Obtención de datos**: A través de Selenium y BeautifulSoup se realizaron solicitudes HTTP a los sitios web y se extrajeron los datos relevantes para el análisis, como los precios actuales y los precios en oferta.
+1. **Obtención de datos**: A través de Selenium y BeautifulSoup se realizo solicitud HTTP y se extrajeron los datos relevantes para el análisis, como los precios actuales y los precios en oferta.
    
 2. **Limpieza y procesamiento de datos**:
    - Se eliminaron columnas irrelevantes y se transformaron datos en el formato adecuado (por ejemplo, fechas y números).
@@ -49,31 +49,32 @@ Durante el análisis, se enfrentaron varios desafíos relacionados con la obtenc
 ## Principales Problemas Encontrados
 Durante el desarrollo del proyecto se presentaron algunos desafíos importantes:
 
-1. **Web Scraping**: La dificultad principal radicó en la obtención de datos precisos y completos, especialmente debido a la variabilidad de las páginas web que se tenían que scrapear y las diferencias en el formato de los datos.
+1. **Web Scraping**: La dificultad principal radicó en la obtención de datos precisos y completos, ya que inicialmente se intentó usar solo BeautifulSoup para extraer la información, pero debido a la dinámica de la página web, fue necesario recurrir a Selenium para obtener los datos correctamente.
    
-2. **Análisis de Datos Complejos**: Con tantos modelos, colores y precios, la visualización de patrones y la creación de conclusiones claras fue desafiante. Fue necesario aplicar técnicas de limpieza y agrupación avanzadas para poder analizar los datos de manera efectiva.
+2. **Análisis de Datos Complejos**: Con tantos modelos, colores y precios, la visualización de patrones y la creación de conclusiones claras fue desafiante. Fue necesario aplicar técnicas de limpieza y agrupación para poder analizar los datos de manera efectiva.
 
 ## Visualizaciones y Resultados
 
 A continuación, se detallan algunos de los gráficos generados a partir del análisis:
 
-1. **Gráfico de Barras por Marca**:
+1. **Gráfico de Barras por Mes y Marca**:
    - Este gráfico muestra los meses con **precios más baratos** (en verde) y **precios más caros** (en rojo) por cada marca de zapatillas.
    - Permite observar la variabilidad de precios y detectar las mejores épocas de descuento.
 
 2. **Gráfico de Líneas para Modelos Específicos**:
-   - Se analizó la variación de precios de los tres modelos más populares de zapatillas, destacando las fluctuaciones que ocurren en ciertas épocas del año.
+   - Se analizó la variación de precios de los tres modelos más populares de zapatillas, destacando los cambios que ocurren en ciertas épocas del año.
    - Este gráfico ayuda a entender cómo las campañas de marketing afectan los precios de los modelos a lo largo del tiempo.
 
-3. **Gráfico de Dispersión por Color**:
-   - En este gráfico se puede observar la relación entre el precio de las zapatillas y su color principal. Algunas zapatillas del mismo modelo tienen precios significativamente diferentes dependiendo del color, lo que sugiere que las promociones o la popularidad de ciertos colores influyen en los precios.
+3. **Gráficos de Dispersión por Color y Marca**:
+   - En estos gráfico se puede observar la relación entre el precio de las zapatillas y su color principal. Algunas zapatillas del mismo modelo tienen precios significativamente diferentes dependiendo del color, lo que sugiere que las promociones o la popularidad de ciertos colores influyen en los precios. Luego en el otro scatterplot se filtro por modelos populares.
 
 4. **Distribución de Precios por Marca**:
    - Se destaca la gran **variabilidad de precios** entre diferentes marcas, lo que indica la necesidad de una segmentación de precios basada en la marca, modelo y color de la zapatilla.
 
 ## Conclusiones
 
-- **Estacionalidad de los Precios**: Se observó una clara **variación estacional** en los precios, con descuentos significativos durante los meses de primavera y principios de verano. Esto sugiere que las marcas tienden a lanzar ofertas en esas fechas.
+- **Variabilidad en los Precios**: Se observó una **variación en los precios** de las zapatillas de crossfit según la marca, sin una estacionalidad clara como se ve en los gráficos. Esto sugiere que las estrategias de precios varían considerablemente entre las marcas, sin una tendencia uniforme a lo largo del año.
+
   
 - **Diferencias entre Modelos y Colores**: Los precios de las zapatillas varían dependiendo del modelo y el color. Esto se debe probablemente a factores como la demanda y la oferta de ciertos modelos o colores.
 
@@ -82,7 +83,7 @@ A continuación, se detallan algunos de los gráficos generados a partir del an�
   2. **Segmentación por modelo y color**: Ofrecer promociones específicas para ciertos modelos o colores que tienden a tener precios más bajos en ciertas épocas del año.
 
 ## Plan Futuro
-El próximo paso en este proyecto es **automatizar el proceso de scraping** para obtener datos actualizados diariamente, de manera que podamos construir un **modelo predictivo** para prever las fechas y los precios de las ofertas de las marcas de zapatillas de Crossfit. La idea es utilizar esta información para crear una **API** que notifique a los usuarios sobre las mejores ofertas en tiempo real.
+El próximo paso en este proyecto es **automatizar el proceso de scraping** para obtener datos actualizados diariamente, de manera que podamos construir un **modelo predictivo** para prever las fechas y los precios de las ofertas de las marcas de zapatillas de Crossfit. La idea es utilizar esta información y mediante una **API** que la mismo notifique a los usuarios sobre las mejores ofertas en tiempo real.
 
 ## Entregables
 
