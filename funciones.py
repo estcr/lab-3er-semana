@@ -40,7 +40,7 @@ def columnas_nuevas(df):
     'Nano Gym': 'Reebok','Nfx Trainer': 'Reebok','Nanoflex Tr 2': 'Reebok','Flexagon Energy': 'Reebok','Nfx': 'Reebok','Flexagon Force 4': 'Reebok',
     'Disperse Xt 3 Unisex': 'Puma','Fuse 3.0': 'Puma','Pwrframe Tr': 'Puma','Tribase Reign 6': 'Under Armour','Reign Lifter Unisex': 'Under Armour',
     'Cxt2': 'Tyr','Cxt1 Trainer Unisex': 'Tyr'}
-    df['brandt'] = df['model'].map(dic_marcas)
+    df['brand'] = df['model'].map(dic_marcas)
     df['%discount'] = (((df['normal_price'] - df['current_price']) / df['normal_price']) * 100).round(2)
     df['main_color'] = df['color'].apply(obtener_color_principal)
     return df
