@@ -6,7 +6,6 @@ def main():
     
     # Descripción del análisis
     st.markdown("""
-    ### Análisis de Precios de Zapatillas de Crossfit
 
     Este cuaderno tiene como objetivo principal ejecutar el análisis de precios de zapatillas de Crossfit utilizando las funciones previamente desarrolladas. 
 
@@ -90,7 +89,7 @@ def main():
 
     # Sidebar con información del autor
     st.sidebar.markdown("""
-    ### Autor:
+    ## Autor:
     Esteban Cristos Muzzupappa
     
     - [Linkedin](https://www.linkedin.com/in/esteban-daniel-cristos-muzzupappa-37b72635/)
