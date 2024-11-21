@@ -41,5 +41,7 @@ def main():
     # Mostrar cantidad de resultados
     st.write(f"Total de resultados: {len(filtered_df)}")
 
+    bk.ejecutar_graficos(df)
+
 if __name__ == '__main__':
     main()

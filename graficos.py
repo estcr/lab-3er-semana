@@ -5,9 +5,9 @@ def distribucion_precio_por_marca(df):
     import plotly.express as px
 
     # Crear el Box Plot comparando 'current_price' por 'marca'
-    fig = px.box(df, x='brandt', y='current_price', title="Distribución de Precios por Marca",
-                labels={'brandt': 'Marca', 'current_price': 'Precio Actual'},
-                color='brandt')  # Colorea el box plot por marca
+    fig = px.box(df, x='brand', y='current_price', title="Distribución de Precios por Marca",
+                labels={'brand': 'Marca', 'current_price': 'Precio Actual'},
+                color='brand')  # Colorea el box plot por marca
 
     return fig
 
@@ -19,7 +19,7 @@ def grafico_precios_por_marca(df):
     para diferentes marcas, destacando los valores mínimos y máximos.
 
     Parámetros:
-        - df: DataFrame que contiene las columnas 'brandt', 'current_price', 'normal_price' y 'month'.
+        - df: DataFrame que contiene las columnas 'brand', 'current_price', 'normal_price' y 'month'.
 
     Retorna:
         - fig: Objeto Plotly Figure listo para ser mostrado.
@@ -43,7 +43,7 @@ def grafico_precios_por_marca(df):
     # Iterar sobre las marcas para crear los gráficos y agregarlos a la cuadrícula
     for i, marca in enumerate(marcas):
         # Filtrar los datos para cada marca
-        df_filtered = df[(df['brandt'] == marca) & (df['current_price'] != df['normal_price'])]
+        df_filtered = df[(df['brand'] == marca) & (df['current_price'] != df['normal_price'])]
         promedios_marca = df_filtered.groupby('month')['current_price'].mean().round(2).reset_index()
 
         # Calcular los valores mínimo y máximo de 'current_price'
@@ -199,7 +199,7 @@ def grafico_precios_agrupados(df):
     agrupados por marca y color principal.
 
     Parámetros:
-        - df: DataFrame que contiene las columnas 'brandt', 'main_color', 'current_price', y 'normal_price'.
+        - df: DataFrame que contiene las columnas 'brand', 'main_color', 'current_price', y 'normal_price'.
 
     Retorna:
         - fig: Objeto Plotly Figure listo para ser mostrado.
@@ -207,7 +207,7 @@ def grafico_precios_agrupados(df):
     import plotly.express as px
 
     # Agrupar por marca y color principal, calculando los promedios de precios
-    df_grouped = df.groupby(['brandt', 'main_color']).agg(
+    df_grouped = df.groupby(['brand', 'main_color']).agg(
         avg_current_price=('current_price', 'mean'),
         avg_normal_price=('normal_price', 'mean')
     ).reset_index()
@@ -217,9 +217,9 @@ def grafico_precios_agrupados(df):
         df_grouped, 
         x="avg_current_price", 
         y="avg_normal_price", 
-        color="brandt", 
+        color="brand", 
         size='avg_normal_price', 
-        hover_data=['brandt', 'main_color'], 
+        hover_data=['brand', 'main_color'], 
         symbol='main_color',
         title="Promedio de Precios: Actual vs Normal por Marca y Color")
 
