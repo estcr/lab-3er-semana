@@ -4,7 +4,7 @@ import graficos as g
 
 
 def load_data():
-    df=pd.read_csv(r"/zalando\data\datos_aleatorios_2023.csv")
+    df=pd.read_csv(r"https://raw.githubusercontent.com/estcr/lab-3er-semana/refs/heads/main/zalando/data/datos_aleatorios_2023.csv")
     df=funcion_principal(df)
     return df
 
