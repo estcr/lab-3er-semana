@@ -1,47 +1,5 @@
 
 
-def grafico_precios_modelos_importantes(df, titulo="Comparación de Precios Promedios por Mes"):
-    """
-    Genera un gráfico de líneas para comparar los precios promedio de modelos específicos por mes.
-
-    Parámetros:
-        - df: DataFrame, contiene las columnas 'model', 'month', y 'current_price'.
-        - titulo: Cadena, título del gráfico (opcional).
-    
-    Retorna:
-        - fig: Objeto de Plotly Figure listo para ser mostrado.
-    """
-    import plotly.express as px
-    # Modelos seleccionados para analizar
-    modelos_seleccionados = ['Metcon 9', 'Tribase Reign 6', 'Nano']
-
-    # Filtrar los modelos deseados
-    df_filtered = df[df['model'].isin(modelos_seleccionados)]
-
-    # Agrupar por modelo y mes, y calcular el precio promedio
-    df_grouped = df_filtered.groupby(['month', 'model'])['current_price'].mean().reset_index()
-
-    # Crear el gráfico de líneas
-    fig = px.line(df_grouped, x='month', y='current_price', color='model',
-                  title=titulo,
-                  labels={
-                      'month': 'Mes', 
-                      'current_price': 'Precio Promedio (€)', 
-                      'model': 'Modelo'
-                  },
-                  line_group='model')  # Asegura que cada modelo tenga su propia línea
-
-    # Mejorar la visualización del eje X para que los nombres de los meses se muestren de forma legible
-    fig.update_xaxes(
-        tickmode='array',
-        tickvals=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-        ticktext=["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", 
-                  "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
-    )
-    fig.update_xaxes(tickangle=45)  # Inclinar las etiquetas del eje X para facilitar su lectura
-    
-    return fig
-
 
 def distribucion_precio_por_marca(df):
     import plotly.express as px
@@ -52,7 +10,6 @@ def distribucion_precio_por_marca(df):
                 color='brandt')  # Colorea el box plot por marca
 
     return fig
-
 
 
 
@@ -149,37 +106,46 @@ def grafico_precios_por_marca(df):
 
 
 
-def grafico_precios_agrupados(df):
+def grafico_precios_modelos_importantes(df, titulo="Comparación de Precios Promedios por Mes"):
     """
-    Genera un gráfico de dispersión que compara los precios promedio actuales y normales,
-    agrupados por marca y color principal.
+    Genera un gráfico de líneas para comparar los precios promedio de modelos específicos por mes.
 
     Parámetros:
-        - df: DataFrame que contiene las columnas 'brandt', 'main_color', 'current_price', y 'normal_price'.
-
+        - df: DataFrame, contiene las columnas 'model', 'month', y 'current_price'.
+        - titulo: Cadena, título del gráfico (opcional).
+    
     Retorna:
-        - fig: Objeto Plotly Figure listo para ser mostrado.
+        - fig: Objeto de Plotly Figure listo para ser mostrado.
     """
     import plotly.express as px
+    # Modelos seleccionados para analizar
+    modelos_seleccionados = ['Metcon 9', 'Tribase Reign 6', 'Nano']
 
-    # Agrupar por marca y color principal, calculando los promedios de precios
-    df_grouped = df.groupby(['brandt', 'main_color']).agg(
-        avg_current_price=('current_price', 'mean'),
-        avg_normal_price=('normal_price', 'mean')
-    ).reset_index()
+    # Filtrar los modelos deseados
+    df_filtered = df[df['model'].isin(modelos_seleccionados)]
 
-    # Crear el gráfico con los datos agrupados
-    fig = px.scatter(
-        df_grouped, 
-        x="avg_current_price", 
-        y="avg_normal_price", 
-        color="brandt", 
-        size='avg_normal_price', 
-        hover_data=['brandt', 'main_color'], 
-        symbol='main_color',
-        title="Promedio de Precios: Actual vs Normal por Marca y Color"
+    # Agrupar por modelo y mes, y calcular el precio promedio
+    df_grouped = df_filtered.groupby(['month', 'model'])['current_price'].mean().reset_index()
+
+    # Crear el gráfico de líneas
+    fig = px.line(df_grouped, x='month', y='current_price', color='model',
+                  title=titulo,
+                  labels={
+                      'month': 'Mes', 
+                      'current_price': 'Precio Promedio (€)', 
+                      'model': 'Modelo'
+                  },
+                  line_group='model')  # Asegura que cada modelo tenga su propia línea
+
+    # Mejorar la visualización del eje X para que los nombres de los meses se muestren de forma legible
+    fig.update_xaxes(
+        tickmode='array',
+        tickvals=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        ticktext=["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", 
+                  "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
     )
-
+    fig.update_xaxes(tickangle=45)  # Inclinar las etiquetas del eje X para facilitar su lectura
+    
     return fig
 
 
@@ -227,10 +193,42 @@ def grafico_precios_por_modelo(df):
     return fig
 
 
+def grafico_precios_agrupados(df):
+    """
+    Genera un gráfico de dispersión que compara los precios promedio actuales y normales,
+    agrupados por marca y color principal.
+
+    Parámetros:
+        - df: DataFrame que contiene las columnas 'brandt', 'main_color', 'current_price', y 'normal_price'.
+
+    Retorna:
+        - fig: Objeto Plotly Figure listo para ser mostrado.
+    """
+    import plotly.express as px
+
+    # Agrupar por marca y color principal, calculando los promedios de precios
+    df_grouped = df.groupby(['brandt', 'main_color']).agg(
+        avg_current_price=('current_price', 'mean'),
+        avg_normal_price=('normal_price', 'mean')
+    ).reset_index()
+
+    # Crear el gráfico con los datos agrupados
+    fig = px.scatter(
+        df_grouped, 
+        x="avg_current_price", 
+        y="avg_normal_price", 
+        color="brandt", 
+        size='avg_normal_price', 
+        hover_data=['brandt', 'main_color'], 
+        symbol='main_color',
+        title="Promedio de Precios: Actual vs Normal por Marca y Color")
+
+    return fig
+
 
 def ejecutar_graficos(df):
+    distribucion_precio_por_marca(df).show()
+    grafico_precios_por_marca(df).show()
+    grafico_precios_modelos_importantes(df, titulo="Comparación de Precios Promedios por Mes").show()
     grafico_precios_por_modelo(df).show()
     grafico_precios_agrupados(df).show()
-    grafico_precios_por_marca(df).show()
-    distribucion_precio_por_marca(df).show()
-    grafico_precios_modelos_importantes(df, titulo="Comparación de Precios Promedios por Mes").show()
