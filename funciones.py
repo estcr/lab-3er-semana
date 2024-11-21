@@ -13,6 +13,7 @@ def funcion_limpieza(df):
     
     # Eliminar filas donde ambos precios son nulos
     df.dropna(subset=["current_price", "normal_price"], how="all", inplace = True)
+    df=df.reset_index(drop=True)
 
     return df  
 
