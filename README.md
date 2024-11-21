@@ -79,8 +79,9 @@ A continuación, se detallan algunos de los gráficos generados a partir del an�
 - **Diferencias entre Modelos y Colores**: Los precios de las zapatillas varían dependiendo del modelo y el color. Esto se debe probablemente a factores como la demanda y la oferta de ciertos modelos o colores.
 
 - **Recomendaciones para la Empresa**:
-  1. **Promociones estacionales**: Focalizar las campañas de marketing y descuentos en los meses de primavera y verano para aprovechar las fluctuaciones en los precios.
-  2. **Segmentación por modelo y color**: Ofrecer promociones específicas para ciertos modelos o colores que tienden a tener precios más bajos en ciertas épocas del año.
+  - **Promociones Estratégicas**: Focalizar las campañas de marketing y descuentos en los meses en los que se observan fluctuaciones de precios significativas para cada marca. Por ejemplo, para Nike y Reebok, los precios más bajos se observan en meses como mayo y enero, respectivamente, mientras que en Puma y Tyr, los precios más bajos se registran en diciembre y abril. En general, es crucial ajustar las campañas de marketing según las tendencias específicas de cada marca y sus meses de mayor variabilidad en los precios.
+
+  - **Segmentación por modelo y color**: Ofrecer promociones específicas para ciertos modelos o colores que tienden a tener precios más bajos en ciertas épocas del año.
 
 ## Plan Futuro
 El próximo paso en este proyecto es **automatizar el proceso de scraping** para obtener datos actualizados diariamente, de manera que podamos construir un **modelo predictivo** para prever las fechas y los precios de las ofertas de las marcas de zapatillas de Crossfit. La idea es utilizar esta información y mediante una **API** que la mismo notifique a los usuarios sobre las mejores ofertas en tiempo real.
@@ -93,9 +94,8 @@ El próximo paso en este proyecto es **automatizar el proceso de scraping** para
 
 ## Enlaces
 
-- **Dataset Utilizado**: [Enlace al Dataset] (si aplica).
-- **Repositorio en GitHub**: [Tu repositorio en GitHub] (si aplica).
+- **Dataset Utilizado**: [https://github.com/estcr/lab-3er-semana/blob/main/zalando/data/datos_aleatorios_2023.csv]
 
 ## Participantes
 
-- **Esteban Cristos** - [Enlace a tu LinkedIn] (si aplica).
+- **Esteban Cristos Muzzupappa** - [www.linkedin.com/in/esteban-daniel-cristos-muzzupappa-37b72635]
