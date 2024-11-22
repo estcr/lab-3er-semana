@@ -16,6 +16,28 @@ def main():
 
     El análisis fue realizado mediante un conjunto de funciones para la limpieza y visualización de datos, asegurando que los datos sean procesados de manera eficiente y reproducible.
     """)
+
+    ## Resumen del Uso de Funciones
+
+    ###En este cuaderno, utilizamos dos funciones principales:
+
+
+    st.markdown("""
+    1. **Función de Limpieza de Datos**:
+       - Realiza la transformación de los datos obtenidos por web scraping.
+       - Estandariza las columnas clave, como precios, fechas y colores principales.
+       - Calcula métricas adicionales, como el porcentaje de descuento.
+       - Prepara el DataFrame final para su análisis.
+
+    2. **Función de Visualización de Gráficos**:
+       - Genera gráficos interactivos para explorar los datos.
+       - Incluye gráficos de barras, líneas y dispersión que destacan:
+         - La variación de precios por marca y modelo.
+         - Los colores con mayores descuentos.
+         - La distribución de precios a lo largo del tiempo.
+
+    Estas funciones encapsulan todo el proceso de análisis, desde la limpieza inicial hasta la visualización final, lo que facilita la reproducción de este análisis con nuevos datos.
+    """)
     
     # Load data
     df = bk.load_data()
