@@ -1,6 +1,3 @@
-import streamlit as st
-import backend as bk
-
 def main():
     st.title('Análisis de Zapatillas de Crossfit')
     
@@ -120,3 +117,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
