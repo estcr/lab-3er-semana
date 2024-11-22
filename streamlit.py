@@ -1,3 +1,9 @@
+import streamlit as st  # Para crear la aplicación
+import pandas as pd     # Para manipulación de datos
+import funciones as f
+import graficos as g
+import backend as bk
+
 def main():
     st.title('Análisis de Zapatillas de Crossfit')
     
