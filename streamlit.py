@@ -9,7 +9,6 @@ def main():
     
     # Descripción del análisis
     st.markdown("""
-
     Este cuaderno tiene como objetivo principal ejecutar el análisis de precios de zapatillas de Crossfit utilizando las funciones previamente desarrolladas. 
 
     A través de este análisis, se busca:
@@ -20,39 +19,25 @@ def main():
     El análisis fue realizado mediante un conjunto de funciones para la limpieza y visualización de datos, asegurando que los datos sean procesados de manera eficiente y reproducible.
     """)
 
-    ## Resumen del Uso de Funciones
+    # Índice para navegar en la página
+    st.sidebar.header("Índice")
+    st.sidebar.markdown("""
+    - [Introducción](#introducción)
+    - [Uso de Funciones](#uso-de-funciones)
+    - [Resultados y Conclusiones](#resultados-y-conclusiones)
+    - [Autor](#autor)
+    """, unsafe_allow_html=True)
 
-    ###En este cuaderno, utilizamos dos funciones principales:
+    # Sidebar para filtros
+    st.sidebar.header("Filtros")
 
-
-    st.markdown("""
-    1. **Función de Limpieza de Datos**:
-       - Realiza la transformación de los datos obtenidos por web scraping.
-       - Estandariza las columnas clave, como precios, fechas y colores principales.
-       - Calcula métricas adicionales, como el porcentaje de descuento.
-       - Prepara el DataFrame final para su análisis.
-
-    2. **Función de Visualización de Gráficos**:
-       - Genera gráficos interactivos para explorar los datos.
-       - Incluye gráficos de barras, líneas y dispersión que destacan:
-         - La variación de precios por marca y modelo.
-         - Los colores con mayores descuentos.
-         - La distribución de precios a lo largo del tiempo.
-
-    Estas funciones encapsulan todo el proceso de análisis, desde la limpieza inicial hasta la visualización final, lo que facilita la reproducción de este análisis con nuevos datos.
-    """)
-    
     # Load data
     df = bk.load_data()
-    
-    # Sidebar
-    st.sidebar.header("Filtros")
-    
-    # Filtrar por mes con opción "All"
+
+    # Filtros
     unique_months = ['All'] + df['month'].dropna().unique().tolist()
     selected_month = st.sidebar.selectbox("Selecciona un mes", options=unique_months)
-    
-    # Filtrar por rango de precios
+
     min_price, max_price = int(df['current_price'].min()), int(df['current_price'].max())
     selected_price_range = st.sidebar.slider(
         "Selecciona un rango de precios",
@@ -60,11 +45,10 @@ def main():
         max_value=max_price,
         value=(min_price, max_price)
     )
-    
-    # Filtrar por marca con opción "All"
+
     unique_brands = ['All'] + df['brand'].dropna().unique().tolist()
     selected_brands = st.sidebar.multiselect("Selecciona marcas", options=unique_brands, default='All')
-    
+
     # Aplicar filtros
     filtered_df = df[(
         (df['month'] == selected_month) | (selected_month == 'All')
@@ -82,10 +66,30 @@ def main():
     # Mostrar cantidad de resultados
     st.write(f"Total de resultados: {len(filtered_df)}")
 
-    # Resultados y Conclusiones
-    st.markdown("""
-    ## Resultados y Conclusiones
+    st.image(r"Imagenes Streamlit\estudio-de-mercado.jpg")
 
+    # Uso de funciones
+    st.markdown("## Uso de Funciones", unsafe_allow_html=True)
+    st.markdown("""
+    1. **Función de Limpieza de Datos**:
+       - Realiza la transformación de los datos obtenidos por web scraping.
+       - Estandariza las columnas clave, como precios, fechas y colores principales.
+       - Calcula métricas adicionales, como el porcentaje de descuento.
+       - Prepara el DataFrame final para su análisis.
+
+    2. **Función de Visualización de Gráficos**:
+       - Genera gráficos interactivos para explorar los datos.
+       - Incluye gráficos de barras, líneas y dispersión que destacan:
+         - La variación de precios por marca y modelo.
+         - Los colores con mayores descuentos.
+         - La distribución de precios a lo largo del tiempo.
+
+    Estas funciones encapsulan todo el proceso de análisis, desde la limpieza inicial hasta la visualización final, lo que facilita la reproducción de este análisis con nuevos datos.
+    """)
+
+    # Resultados y Conclusiones
+    st.markdown("## Resultados y Conclusiones", unsafe_allow_html=True)
+    st.markdown("""
     A través de los gráficos generados, se destacan los siguientes puntos clave:
 
     1. **Variación de Precios por Marca**:
@@ -108,15 +112,14 @@ def main():
     - Implementar un modelo predictivo para identificar las fechas más probables de descuentos.
     - Diseñar una API que notifique a los consumidores sobre posibles ofertas.
     """)
-    
+
     # Ejecutar gráficos
     bk.ejecutar_graficos(df)
 
-    # Sidebar con información del autor
+    # Información del autor
+    st.markdown("## Autor", unsafe_allow_html=True)
     st.sidebar.markdown("""
-    ## Autor:
-    Esteban Cristos Muzzupappa
-    
+    - **Autor**: Esteban Cristos Muzzupappa
     - [Linkedin](https://www.linkedin.com/in/esteban-daniel-cristos-muzzupappa-37b72635/)
     - [GitHub](https://github.com/estcr)
     """)
