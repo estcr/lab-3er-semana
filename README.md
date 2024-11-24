@@ -1,6 +1,6 @@
-# 💹Análisis de Precios de Zapatillas de Crossfit
+# 👟Análisis de Precios de Zapatillas de Crossfit
 
-## 📎Descripción del Proyecto
+## 💡Descripción del Proyecto
 Este proyecto tiene como objetivo analizar los precios de las zapatillas de Crossfit en oferta y precio normal a través de un proceso de web scraping, utilizando datos obtenidos de un sitio web que posee casi todas las marcas(en un futuro la idea es ampliar esta obtención de datos). A partir de esta información, se generan graáficos de las variaciones de precios, se analizan patrones estacionales y se proponen recomendaciones para los consumidores y empresas del sector.
 
 El proceso de análisis y limpieza de datos se ha realizado con el fin de proporcionar a la empresa una información sobre las mejores épocas para realizar campañas de marketing y optimizar sus precios. A su vez, se busca llevar este análisis un paso más allá, no solo como una herramienta para empresas, sino también para **avisar a los consumidores sobre las subidas y bajadas de precios**. Esto permitirá que los usuarios reciban notificaciones sobre las mejores ofertas disponibles y puedan aprovechar las fluctuaciones de precios en tiempo real en un futuro.
@@ -13,7 +13,7 @@ El análisis de precios se realizó con el objetivo de:
 3. **Visualizar las variaciones de precios** mediante gráficos y obtener insights acerca de los mejores momentos para las ofertas.
 4. **Establecer conclusiones y recomendaciones** sobre la estacionalidad de los precios y la variabilidad entre marcas y colores de los productos.
 
-## 🧰Herramientas Utilizadas
+## 🔧Herramientas Utilizadas
 Para el desarrollo de este proyecto, se utilizaron las siguientes herramientas y bibliotecas:
 
 - **Python**: Lenguaje principal utilizado para el procesamiento y análisis de los datos.
