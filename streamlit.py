@@ -66,7 +66,7 @@ def main():
     # Mostrar cantidad de resultados
     st.write(f"Total de resultados: {len(filtered_df)}")
 
-    st.image("https://github.com/estcr/lab-3er-semana/blob/main/Imagenes%20Streamlit/estudio-de-mercado.jpg")
+    st.image("https://blog.exportatuvalor.com/wp-content/uploads/2021/03/estudio-de-mercado.jpg")
 
     # Uso de funciones
     st.markdown("## Uso de Funciones", unsafe_allow_html=True)
