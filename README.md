@@ -99,4 +99,4 @@ El próximo paso en este proyecto es **automatizar el proceso de scraping** para
 
 ## Autor
 
-- **Esteban Cristos Muzzupappa** - [www.linkedin.com/in/esteban-daniel-cristos-muzzupappa-37b72635]
+- **Esteban Cristos Muzzupappa** - (https://www.linkedin.com/in/esteban-cristos-m/)
